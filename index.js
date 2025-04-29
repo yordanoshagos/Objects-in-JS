@@ -6,33 +6,29 @@ function Employee(name, position, salary){
 }
    
 let employees = [
-    new Employee("Nebu", "designer", 50000),
-    new Employee("Merry", "developer", 60000),
-    new Employee("Mahi", "developer", 65000),
-    new Employee("Sami", "manager", 70000),
-    new Employee("Yordi", "developer", 55000)
+    new Employee("Nebu", "designer", 40000),
+    new Employee("Merry", "developer", 62000),
+    new Employee("Mahi", "developer", 68000),
+    new Employee("Sami", "manager", 72000),
+    new Employee("Yordi", "developer", 65000)
 ];
 
 function salaryIncreased(employees){
-    return employees.map(employee=>{
-          if (employee["position"]=="developer"){
-             return employee.salary=employee.salary+(employee.salary*0.1)
+    for (let employee of employees){
+          if (employee.position == "developer"){
+           employee.salary += employee.salary*0.1
           }
-          else{
-              return employee.salary
-          }
-      })
+      }
+      return employees
   }
   console.log(salaryIncreased(employees))
-  console.log(employees)
-
 
 console.log('  ');
 
 // 2. Filter and Sort Products
 const products = [
-    { name: "Laptop", price: 1200, inStock: true },
-    { name: "Mouse", price: 25, inStock: false },
+    { name: "RAM", price: 1200, inStock: true },
+    { name: "Speaker", price: 25, inStock: false },
     { name: "Keyboard", price: 75, inStock: true },
     { name: "Monitor", price: 300, inStock: true },
     { name: "Wifi cable", price: 10, inStock: false }
@@ -75,36 +71,32 @@ function User(username, email, isActive) {
     this.isActive = isActive;
 }
 let users = [
-    new User("alice123", "alice@mail.com", true),
-    new User("bob456", "bob@mail.com", true),
-    new User("charlie789", "charlie@mail.com", true),
-    new User("dana234", "dana@mail.com", true),
-    new User("edward567", "edward@mail.com", true)
+    new User("merry1223", "merry@mail.com", true),
+    new User("nebu21", "nebu@mail.com", true),
+    new User("melat719", "melat@mail.com", false),
+    new User("sari23", "sari@mail.com", true),
+    new User("dave567", "dave@mail.com", false)
 ];
 
-users.forEach(user => {
-    user.isActive = Math.random() > 0.5;
-});
-console.log("Active Users:");
 users.forEach(user => {
     if (user.isActive) {
         console.log(user.username);
     }
 });
 
-
-// 5. Filter Destinations by Distance and Budget
+console.log('  ');
+// 5. Filter Destinations by distance and budget
 const destinations = [
-    { name: "Paris", distance: 1000, budgetRequired: 1200 },
-    { name: "Rome", distance: 800, budgetRequired: 900 },
-    { name: "London", distance: 1500, budgetRequired: 1100 },
-    { name: "Berlin", distance: 600, budgetRequired: 700 },
-    { name: "Amsterdam", distance: 400, budgetRequired: 600 }
+    { name: "Paris", distance: 500, budgetRequired: 1500 },
+    { name: "Netherlands", distance: 1800, budgetRequired: 800 },
+    { name: "Johannesburg", distance: 400, budgetRequired: 650 },
+    { name: "New York", distance: 800, budgetRequired: 850 },
+    { name: "Amsterdam", distance: 300, budgetRequired: 500 }
 ];
-function findAffordableDestinations(maxDistance, maxBudget) {
-    const result = destinations.filter(dest =>
-        dest.distance <= maxDistance && dest.budgetRequired <= maxBudget
+function findsAffordableDestination(maxDistance, maxBudget) {
+    const result = destinations.filter(destin =>
+        destin.distance <= maxDistance && destin.budgetRequired <= maxBudget
     );
-    return result.length > 0 ? result : "No destinations available under your budget and distance";
+    return result.length > 0 ? result : "No destinations available for your budget and distance";
 }
-console.log("Affordable Destinations:", findAffordableDestinations(1000, 1000));
+console.log("Affordable Destinations:", findsAffordableDestination(1000, 1000));
