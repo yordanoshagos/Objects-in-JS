@@ -85,6 +85,7 @@ users.forEach(user => {
 });
 
 console.log('  ');
+
 // 5. Filter Destinations by distance and budget
 const destinations = [
     { name: "Paris", distance: 500, budgetRequired: 1500 },
@@ -94,8 +95,8 @@ const destinations = [
     { name: "Amsterdam", distance: 300, budgetRequired: 500 }
 ];
 function findsAffordableDestination(maxDistance, maxBudget) {
-    const result = destinations.filter(destin =>
-        destin.distance <= maxDistance && destin.budgetRequired <= maxBudget
+    const result = destinations.filter(destination =>
+        destination.distance <= maxDistance && destination.budgetRequired <= maxBudget
     );
     return result.length > 0 ? result : "No destinations available for your budget and distance";
 }
